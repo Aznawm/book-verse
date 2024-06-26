@@ -1,95 +1,43 @@
+import backgroundImage from '../../public/home/bookzzzz.jpg';
+import { Button } from 'antd';
+import { HomeOutlined } from '@ant-design/icons';
 import Image from "next/image";
-import styles from "./page.module.css";
+import React from "react";
+import Link from 'next/link';
+
+interface ButtonProps {
+  type?: 'primary' | 'default' | 'ghost' | 'dashed' | 'link' | undefined;
+  size?: 'large' | 'small' | undefined;
+  icon?: React.ReactNode;
+  children?: React.ReactNode;
+}
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="flex flex-col h-screen w-full relative"> {/* Add 'relative' class to the parent container */}
+      <Image
+        src={backgroundImage}
+        alt="bookzzzz"
+        fill
+        style={{ objectFit: 'cover' }}
+      />
+      <div className="flex flex-col justify-center items-center w-full absolute top-0 left-0 h-full"> {/* Add 'absolute' and positioning classes to the child container */}
+        <p className="text-5xl text-blue-800 mx-auto z-10">BOOK UNIVERSE</p> {/* Add 'z-10' class to ensure the text is visible above the background image */}
+        <div className="self-center">
+          <Link 
+            href="./auth" 
+            passHref
           >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+            <Button 
+              type="primary" 
+              size="large" 
+              icon={<HomeOutlined />}
+            >
+              Dive into Milions of Worlds
+            </Button>
+          </Link>
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </div>
   );
 }
