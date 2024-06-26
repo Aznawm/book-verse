@@ -1,6 +1,6 @@
 import backgroundImage from '../../public/home/bookzzzz.jpg';
 import { Button } from 'antd';
-import { HomeOutlined } from '@ant-design/icons';
+import { HomeOutlined, FolderOutlined } from '@ant-design/icons';
 import Image from "next/image";
 import React from "react";
 import Link from 'next/link';
@@ -14,15 +14,14 @@ interface ButtonProps {
 
 export default function Home() {
   return (
-    <div className="flex flex-col h-screen w-full relative"> {/* Add 'relative' class to the parent container */}
+    <div className="flex flex-col h-screen w-full relative items-center justify-center">
       <Image
         src={backgroundImage}
         alt="bookzzzz"
         fill
         style={{ objectFit: 'cover' }}
       />
-      <div className="flex flex-col justify-center items-center w-full absolute top-0 left-0 h-full"> {/* Add 'absolute' and positioning classes to the child container */}
-        <p className="text-5xl text-blue-800 mx-auto z-10">BOOK UNIVERSE</p> {/* Add 'z-10' class to ensure the text is visible above the background image */}
+      <div className="flex justify-between w-full max-w-md px-4"> {/* Add 'flex' and 'justify-between' classes to create a flex container with space between buttons */}
         <div className="self-center">
           <Link 
             href="./auth" 
@@ -32,8 +31,24 @@ export default function Home() {
               type="primary" 
               size="large" 
               icon={<HomeOutlined />}
+              className="mt-10"
             >
               Dive into Milions of Worlds
+            </Button>
+          </Link>
+        </div>
+        <div className="self-center">
+          <Link 
+            href="./categories" 
+            passHref
+          >
+            <Button 
+              type="default" 
+              size="large" 
+              icon={<FolderOutlined />}
+              className="mt-10"
+            >
+              Browse Categories
             </Button>
           </Link>
         </div>
