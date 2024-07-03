@@ -18,7 +18,8 @@ const categories = [
 const BookCategories = () => {
   return (
     <div>
-      <h2>Book Categories</h2>
+      <h1>Book Categories</h1>
+      <h2>Pick Your favourite!!!!</h2>
       <ul>
         {categories.map((category) => (
           <li key={category.id}>{category.name}</li>
